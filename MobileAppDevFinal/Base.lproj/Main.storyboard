@@ -362,6 +362,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rlI-SY-IsP"/>
                     </view>
+                    <connections>
+                        <outlet property="B1Button" destination="tAx-Vb-Fbh" id="4lb-cY-Hvc"/>
+                        <outlet property="B2Button" destination="mYs-GV-ml6" id="fHr-Od-V90"/>
+                        <outlet property="B3Button" destination="xAY-6z-W08" id="Lza-wh-pGX"/>
+                        <outlet property="B4Button" destination="pFm-6V-P0k" id="B9w-Au-x6m"/>
+                        <outlet property="B5Button" destination="R1a-iD-OIs" id="bbi-WT-JDG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN3-sC-3Hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
