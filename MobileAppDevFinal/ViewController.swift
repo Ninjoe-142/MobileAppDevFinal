@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func playButton(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "PlayingCard") as? BingoCardViewController {
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

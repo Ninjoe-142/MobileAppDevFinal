@@ -12,6 +12,7 @@
 		B28235C921753D0B009C7D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28235C721753D0B009C7D63 /* Main.storyboard */; };
 		B28235CB21753D0E009C7D63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B28235CA21753D0E009C7D63 /* Assets.xcassets */; };
 		B28235CE21753D0E009C7D63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28235CC21753D0E009C7D63 /* LaunchScreen.storyboard */; };
+		B28235D621753EDD009C7D63 /* BingoCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28235D521753EDD009C7D63 /* BingoCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B28235CA21753D0E009C7D63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B28235CD21753D0E009C7D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B28235CF21753D0E009C7D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B28235D521753EDD009C7D63 /* BingoCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				B28235C321753D0B009C7D63 /* AppDelegate.swift */,
 				B28235C521753D0B009C7D63 /* ViewController.swift */,
 				B28235C721753D0B009C7D63 /* Main.storyboard */,
+				B28235D521753EDD009C7D63 /* BingoCardViewController.swift */,
 				B28235CA21753D0E009C7D63 /* Assets.xcassets */,
 				B28235CC21753D0E009C7D63 /* LaunchScreen.storyboard */,
 				B28235CF21753D0E009C7D63 /* Info.plist */,
@@ -137,6 +140,7 @@
 			files = (
 				B28235C621753D0B009C7D63 /* ViewController.swift in Sources */,
 				B28235C421753D0B009C7D63 /* AppDelegate.swift in Sources */,
+				B28235D621753EDD009C7D63 /* BingoCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
