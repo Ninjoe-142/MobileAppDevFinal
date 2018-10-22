@@ -368,6 +368,26 @@
                         <outlet property="B3Button" destination="xAY-6z-W08" id="Lza-wh-pGX"/>
                         <outlet property="B4Button" destination="pFm-6V-P0k" id="B9w-Au-x6m"/>
                         <outlet property="B5Button" destination="R1a-iD-OIs" id="bbi-WT-JDG"/>
+                        <outlet property="G1Button" destination="yMi-AC-sFA" id="jkn-JB-KSc"/>
+                        <outlet property="G2Button" destination="Pog-zg-wC2" id="WMZ-uo-caZ"/>
+                        <outlet property="G3Button" destination="WLL-Ah-gUi" id="lb1-Uw-r1D"/>
+                        <outlet property="G4Button" destination="SHf-O6-exf" id="SLB-XC-v4Z"/>
+                        <outlet property="G5Button" destination="8nI-si-xyJ" id="9v8-2E-sni"/>
+                        <outlet property="I1Button" destination="s5a-oY-mLv" id="Oue-WL-rzj"/>
+                        <outlet property="I2Button" destination="FPN-F7-AcH" id="FWp-a5-ZPD"/>
+                        <outlet property="I3Button" destination="XZ2-mH-6Ue" id="chJ-jq-8Ly"/>
+                        <outlet property="I4Button" destination="lwH-eI-30h" id="Mad-gF-ZCW"/>
+                        <outlet property="I5Button" destination="ub3-zP-EXT" id="uEl-28-11Y"/>
+                        <outlet property="N1Button" destination="Igc-8y-n4R" id="7HX-Vz-f2Q"/>
+                        <outlet property="N2Button" destination="7Px-ba-XdI" id="AhS-7h-FwI"/>
+                        <outlet property="N4Button" destination="5Ci-rB-GY3" id="KVn-zf-PKy"/>
+                        <outlet property="N5Button" destination="wOz-gF-93w" id="ODm-u8-vyU"/>
+                        <outlet property="O1Button" destination="E95-BR-HVP" id="7wU-In-8sL"/>
+                        <outlet property="O2Button" destination="nJk-7W-kbb" id="ygh-TT-Nn9"/>
+                        <outlet property="O3Button" destination="SA6-nn-hCX" id="Rgy-14-Ls6"/>
+                        <outlet property="O4Button" destination="Wlt-V6-WNz" id="hCJ-tF-fqf"/>
+                        <outlet property="O5Button" destination="DjA-bp-dSl" id="DlD-to-57O"/>
+                        <outlet property="freeButton" destination="2CP-jz-9lQ" id="hBu-4G-Bsu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN3-sC-3Hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
