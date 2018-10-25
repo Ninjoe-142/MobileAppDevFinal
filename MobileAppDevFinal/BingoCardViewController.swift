@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import Foundation
+
+enum  WinConition{
+    
+    case vertical
+    case horizontal
+    case diagonal
+}
 
 class BingoCardViewController: UIViewController {
 
@@ -40,6 +48,14 @@ class BingoCardViewController: UIViewController {
     @IBOutlet weak var O4Button: UIButton!
     @IBOutlet weak var O5Button: UIButton!
     
+    @IBOutlet weak var topLabel: UILabel!
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        if topLabel.text == sender.titleLabel?.text{
+             sender.backgroundColor = UIColor.lightGray
+        }
+    }
+    
     var bRow = [UIButton]()
     var iRow = [UIButton]()
     var nRow = [UIButton]()
@@ -52,8 +68,12 @@ class BingoCardViewController: UIViewController {
     var gNumbers = [46,47,48,49,50,51,52,53,54,55,56,57,58,49,60]
     var oNumbers = [61,62,63,64,65,66,67,68,69,70,71,72,73,74,75]
     
+    var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
         
         rowManager()
         numberGenerator(bRow, rownumbers: bNumbers)
@@ -62,8 +82,7 @@ class BingoCardViewController: UIViewController {
         numberGenerator(gRow, rownumbers: gNumbers)
         numberGenerator(oRow, rownumbers: oNumbers)
         
-      
-        // Do any additional setup after loading the view.
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(numberPicker), userInfo: nil, repeats: true)
     }
     
     func numberGenerator(_ row : Array <UIButton>, rownumbers : Array <Int>){
@@ -78,14 +97,25 @@ class BingoCardViewController: UIViewController {
             
             button.setTitle("\(number)", for: .normal)
         }
-        
     }
-    
+    @objc func numberPicker(){
+        
+        var allNumbers = bNumbers + iNumbers + nNumbers + gNumbers + oNumbers
+        
+        let pickedNumber = Int.random(in: 0...allNumbers.count - 1)
+        let number = allNumbers[pickedNumber]
+        allNumbers.remove(at: pickedNumber)
+        
+        topLabel.text = "\(number)"
+    }
     func rowManager() {
         self.bRow = [self.B1Button, self.B2Button, self.B3Button, self.B4Button, self.B5Button]
         self.iRow = [self.I1Button, self.I2Button, self.I3Button, self.I4Button, self.I5Button]
         self.nRow = [self.N1Button, self.N2Button, self.N4Button, self.N5Button]
         self.gRow = [self.G1Button, self.G2Button, self.G3Button, self.G4Button, self.G5Button]
         self.oRow = [self.O1Button, self.O2Button, self.O3Button, self.O4Button, self.O5Button]
+    }
+    func checkVictory() {
+        
     }
 }
