@@ -13,6 +13,7 @@ enum  WinConition : String{
     case vertical
     case horizontal
     case diagonal
+    case none
 }
 
 class BingoCardViewController: UIViewController {
@@ -63,8 +64,16 @@ class BingoCardViewController: UIViewController {
     var oColumn = [UIButton]()
     var allColumns = [Array <UIButton>]()
     
-    var firstDiagonal = [UIButton]()
-    var secondDiagonal = [UIButton]()
+    var diagonal1 = [UIButton]()
+    var diagonal2 = [UIButton]()
+    var allDiagonals = [Array <UIButton>]()
+    
+    var row1 = [UIButton]()
+    var row2 = [UIButton]()
+    var row3 = [UIButton]()
+    var row4 = [UIButton]()
+    var row5 = [UIButton]()
+    var allRows = [Array <UIButton>]()
     
     var bNumbers = [1,2,3,4,5,6,7,8,9,10,12,13,14,15]
     var iNumbers = [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
@@ -75,9 +84,7 @@ class BingoCardViewController: UIViewController {
     
     var timer = Timer()
     
-    var horizontalNumber = 0
-    var verticalNumber = 0
-    var diagonalNumber = 0
+    var winNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +114,7 @@ class BingoCardViewController: UIViewController {
             
             button.setTitle("\(number)", for: .normal)
         }
+        freeButton.setTitle("free", for: .normal)
     }
     
     @objc func numberPicker(){
@@ -125,61 +133,124 @@ class BingoCardViewController: UIViewController {
     }
     
     func rowManager() {
-        self.bColumn = [self.B1Button, self.B2Button, self.B3Button, self.B4Button, self.B5Button]
-        self.iColumn = [self.I1Button, self.I2Button, self.I3Button, self.I4Button, self.I5Button]
-        self.nColumn = [self.N1Button, self.N2Button, self.N4Button, self.N5Button]
-        self.gColumn = [self.G1Button, self.G2Button, self.G3Button, self.G4Button, self.G5Button]
-        self.oColumn = [self.O1Button, self.O2Button, self.O3Button, self.O4Button, self.O5Button]
+        self.bColumn = [B1Button, B2Button, B3Button, B4Button, B5Button]
+        self.iColumn = [I1Button, I2Button, I3Button, I4Button, I5Button]
+        self.nColumn = [N1Button, N2Button, N4Button, N5Button, freeButton]
+        self.gColumn = [G1Button, G2Button, G3Button, G4Button, G5Button]
+        self.oColumn = [O1Button, O2Button, O3Button, O4Button, O5Button]
+        
+        self.diagonal1 = [B1Button, I2Button, G4Button, O5Button, freeButton]
+        self.diagonal2 = [B5Button, I4Button, G2Button, O1Button, freeButton]
+        
+        self.row1 = [B1Button, I1Button, N1Button, G1Button, O1Button]
+        self.row2 = [B2Button, I2Button, N2Button, G2Button, O2Button]
+        self.row3 = [B3Button, I3Button, G3Button, O3Button, freeButton]
+        self.row4 = [B4Button, I4Button, N4Button, G4Button, O4Button]
+        self.row5 = [B5Button, I5Button, N5Button, G5Button, O5Button]
+        
+        self.allDiagonals = [diagonal1, diagonal2]
         self.allColumns = [bColumn, iColumn, nColumn, gColumn, oColumn]
+        self.allRows = [row1, row2, row3, row4, row5]
+        
         self.allNumbers = bNumbers + iNumbers + nNumbers + gNumbers + oNumbers
         
-        self.firstDiagonal = [self.B1Button, self.I2Button, self.G4Button, self.O5Button]
-        self.secondDiagonal = [self.B5Button, self.I4Button, self.G2Button, self.O1Button]
+        
     }
     
     func checkVictory(_ sender: UIButton) {
         
-        let buttonrow = findButton(sender, allColumn: allColumns)
+        let winningArray = findButton(sender)
         
-        winTypes(buttonrow)
-        print("after the whole func \(verticalNumber) from \(sender.titleLabel?.text ?? "error")")
+        let winType = checkBingoType(winningArray)
         
-        if horizontalNumber == 5{
-            didWin(.horizontal)
-        }
-        if diagonalNumber == 5{
-            didWin(.diagonal)
-        }
-        if verticalNumber == 5{
-            didWin(.vertical)
-        }
+        didWin(winType)
     }
     
-    func findButton(_ sender : UIButton, allColumn : Array <Array <UIButton>>) -> Array <UIButton> {
-        for array in allColumn{
+    func findButton(_ sender : UIButton) -> Array <UIButton> {
+        
+        for array in allColumns{
             for _ in array{
                 if sender.backgroundColor == UIColor.lightGray{
-                    return array
+                    if checkForVictory(array) == true{
+                        return array
+                    }
+                }
+            }
+        }
+        
+        for array in allDiagonals{
+            for _ in array{
+                if sender.backgroundColor == UIColor.lightGray{
+                    if checkForVictory(array) == true{
+                        return array
+                    }
+                }
+            }
+        }
+        
+        for array in allRows{
+            for _ in array{
+                if sender.backgroundColor == UIColor.lightGray{
+                    if checkForVictory(array) == true{
+                        return array
+                    }
                 }
             }
         }
         return []
     }
     
-    func winTypes(_ row : Array<UIButton>){
+    func checkBingoType(_ array : Array <UIButton>) -> WinConition {
+        switch array {
+        case bColumn:
+            return .vertical
+        case iColumn:
+            return .vertical
+        case nColumn:
+            return .vertical
+        case gColumn:
+            return .vertical
+        case oColumn:
+            return .vertical
+        case diagonal1:
+             return .diagonal
+        case diagonal2:
+            return .diagonal
+        case row1:
+            return .horizontal
+        case row2:
+            return .horizontal
+        case row3:
+            return .horizontal
+        case row4:
+            return .horizontal
+        case row5:
+            return .horizontal
+        default:
+            return .none
+        }
+    }
+    
+    func checkForVictory(_ row : Array<UIButton>) -> Bool {
         for buttons in row {
             if buttons.backgroundColor == UIColor.lightGray{
-                verticalNumber += 1
+                winNumber += 1
             }
         }
-        if verticalNumber != 5 {
-            verticalNumber = 0
+        if winNumber != 5 {
+            winNumber = 0
+            return false
+        }else{
+            winNumber = 0
+            return true
         }
     }
     
     func didWin(_ type : WinConition) {
-        timer.invalidate()
-        topLabel.text = "You Won?\(type.rawValue) bingo"
-         navigationItem.hidesBackButton = false
+        if type != .none{
+            timer.invalidate()
+            topLabel.text = "You Won \(type.rawValue) bingo"
+            navigationItem.hidesBackButton = false
+        }
     }
 }
