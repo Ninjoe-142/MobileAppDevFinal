@@ -102,12 +102,12 @@ class BingoCardViewController: UIViewController {
         gColumn = [G1Button, G2Button, G3Button, G4Button, G5Button]
         oColumn = [O1Button, O2Button, O3Button, O4Button, O5Button]
         
-        diagonal1 = [B1Button, I2Button, G4Button, O5Button, freeButton]
-        diagonal2 = [B5Button, I4Button, G2Button, O1Button, freeButton]
+        diagonal1 = [B1Button, I2Button, G4Button, O5Button]
+        diagonal2 = [B5Button, I4Button, G2Button, O1Button]
         
         row1 = [B1Button, I1Button, N1Button, G1Button, O1Button]
         row2 = [B2Button, I2Button, N2Button, G2Button, O2Button]
-        row3 = [B3Button, I3Button, G3Button, O3Button, freeButton]
+        row3 = [B3Button, I3Button, G3Button, O3Button]
         row4 = [B4Button, I4Button, N4Button, G4Button, O4Button]
         row5 = [B5Button, I5Button, N5Button, G5Button, O5Button]
         

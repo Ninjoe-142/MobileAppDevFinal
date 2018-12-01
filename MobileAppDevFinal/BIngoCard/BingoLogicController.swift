@@ -97,7 +97,7 @@ func checkForVictory(_ row : Array<UIButton>) -> Bool {
             winNumber += 1
         }
     }
-    if winNumber != 5 {
+    if winNumber != row.count {
         winNumber = 0
         return false
     }else{
