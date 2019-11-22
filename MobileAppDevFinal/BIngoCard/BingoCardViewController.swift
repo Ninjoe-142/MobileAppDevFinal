@@ -52,7 +52,9 @@ class BingoCardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+	
+        print("hello Github")
+	
         navigationItem.hidesBackButton = true
         
         arrayInit()
