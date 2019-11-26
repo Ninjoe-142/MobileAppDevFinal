@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// This  file contains the verious difrent arrays  that I need in my code sepreated just due to ease of reading in future updates 
 var bColumn = [UIButton]()
 var iColumn = [UIButton]()
 var nColumn = [UIButton]()

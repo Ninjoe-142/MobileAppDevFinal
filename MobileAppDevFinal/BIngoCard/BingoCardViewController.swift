@@ -5,6 +5,8 @@
 //  Created by Joseph DeCrisanti on 10/15/18.
 //  Copyright © 2018 Joseph DeCrisanti. All rights reserved.
 //
+//This VC contoles the bingo card and some of the functions around the buttons
+//
 
 import UIKit
 import Foundation
@@ -42,12 +44,15 @@ class BingoCardViewController: UIViewController {
     @IBOutlet weak var O5Button: UIButton!
     
     @IBOutlet weak var topLabel: UILabel!
-    
+	
+	/// This function is called whenever a bingo number is pressed checkes to see if the label of the the button is the same as the lable on top
+	/// if this is true it will mark the button as correctly pressed by graying out the background this function checks to see if the user has won
+	/// - Parameter sender: This is one of the buttons that makes up the bingo grid
     @IBAction func buttonPressed(_ sender: UIButton) {
         if topLabel.text == sender.titleLabel?.text{
              sender.backgroundColor = UIColor.lightGray
         }
-        didWin(checkVictory(sender))
+        didWin(victoryChecker(sender))
     }
     
     override func viewDidLoad() {
@@ -60,7 +65,12 @@ class BingoCardViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(numberPicker), userInfo: nil, repeats: true)
     }
-    
+	
+	/// This fuction takes in all of the needed numbers and all of the colums and iterates over said colums assigning each
+	/// an approreate number picked at random
+	/// - Parameters:
+	///   - allColumns: This as an array of each of the arrays of buttons
+	///   - columnNumbers: This is an array of each of the arrays of numbers
     func numberGenerator(_ allColumns : Array <Array<UIButton>>, _ columnNumbers : Array <Array<Int>>){
         
         var count = 0
@@ -79,7 +89,9 @@ class BingoCardViewController: UIViewController {
             }
         freeButton.setTitle("free", for: .normal)
     }
-    
+	
+	/// This function generates a random number and assigns that value to the top lable
+	/// TODO: have it add the appropreate letter to the lable
     @objc func numberPicker(){
         
         if allNumbers.count == 0{
@@ -94,7 +106,8 @@ class BingoCardViewController: UIViewController {
         
         topLabel.text = "\(number)"
     }
-    
+	
+	/// Intitalizes all of the arrays
     func arrayInit() {
         bColumn = [B1Button, B2Button, B3Button, B4Button, B5Button]
         iColumn = [I1Button, I2Button, I3Button, I4Button, I5Button]
@@ -118,7 +131,9 @@ class BingoCardViewController: UIViewController {
         allNumbers = bNumbers + iNumbers + nNumbers + gNumbers + oNumbers
         allNumberArrays = [bNumbers, iNumbers, nNumbers, gNumbers, oNumbers]
     }
-    
+	
+	/// This fuction handels the UI changes for when the user won
+	/// - Parameter type: Windconition is an Enum that is made to represent one of the bingo types
     func didWin(_ type : WinConition) {
         if type != .none{
             timer.invalidate()
