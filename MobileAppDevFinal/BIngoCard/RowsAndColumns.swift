@@ -39,3 +39,8 @@ var allNumberArrays = [Array <Int>]()
 var timer = Timer()
 
 var winNumber = 0
+
+struct Lable {
+	var letter : String
+	var number : String
+}

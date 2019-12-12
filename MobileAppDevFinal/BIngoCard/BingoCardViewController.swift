@@ -12,6 +12,8 @@ import UIKit
 import Foundation
 
 class BingoCardViewController: UIViewController {
+	
+	var topLable = Lable(letter: "X", number: "0")
     
     @IBOutlet weak var B1Button: UIButton!
     @IBOutlet weak var B2Button: UIButton!
@@ -49,7 +51,7 @@ class BingoCardViewController: UIViewController {
 	/// if this is true it will mark the button as correctly pressed by graying out the background this function checks to see if the user has won
 	/// - Parameter sender: This is one of the buttons that makes up the bingo grid
     @IBAction func buttonPressed(_ sender: UIButton) {
-        if topLabel.text == sender.titleLabel?.text{
+		if topLable.number == sender.titleLabel?.text{
              sender.backgroundColor = UIColor.lightGray
         }
         didWin(victoryChecker(sender))
@@ -82,7 +84,7 @@ class BingoCardViewController: UIViewController {
                 let pickedNumber = Int.random(in: 0...numbers.count - 1)
                 let n = numbers[pickedNumber]
                 numbers.remove(at: pickedNumber)
-                
+			
                 button.setTitle("\(n)", for: .normal)
                 }
             count += 1
@@ -100,11 +102,16 @@ class BingoCardViewController: UIViewController {
             topLabel.text = "You Lost"
         }
         
-        let pickedNumber = Int.random(in: 0...allNumbers.count - 1)
-        let number = allNumbers[pickedNumber]
-        allNumbers.remove(at: pickedNumber)
-        
-        topLabel.text = "\(number)"
+	let pickedNumber = Int.random(in: 0...allNumbers.count - 1)
+	let number = allNumbers[pickedNumber]
+	allNumbers.remove(at: pickedNumber)
+	let lable = findNumber(number)
+	if lable == "Error" {
+		topLabel.text = "\(number)"
+	}
+	topLable = Lable(letter: lable, number: "\(number)")
+	
+	topLabel.text = "\(topLable.letter) \(topLable.number)"
     }
 	
 	/// Intitalizes all of the arrays

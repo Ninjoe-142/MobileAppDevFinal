@@ -115,3 +115,27 @@ func vicrotyVerifier(_ row : Array<UIButton>) -> Bool {
         return true
     }
 }
+
+func findNumber(_ num: Int) -> String{
+	for array in allNumberArrays {
+		for i in array{
+			if i == num {
+				switch array {
+					case bNumbers:
+					return "B"
+					case iNumbers:
+					return "I"
+					case nNumbers:
+					return "N"
+					case gNumbers:
+					return "G"
+					case oNumbers:
+					return "O"
+					default:
+					return "Error"
+					}
+				}
+			}
+		}
+	return "Error"
+}
