@@ -118,7 +118,7 @@ class BingoCardViewController: UIViewController {
     func arrayInit() {
         bColumn = [B1Button, B2Button, B3Button, B4Button, B5Button]
         iColumn = [I1Button, I2Button, I3Button, I4Button, I5Button]
-        nColumn = [N1Button, N2Button, N4Button, N5Button, freeButton]
+        nColumn = [N1Button, N2Button, N4Button, N5Button]
         gColumn = [G1Button, G2Button, G3Button, G4Button, G5Button]
         oColumn = [O1Button, O2Button, O3Button, O4Button, O5Button]
         
