@@ -95,13 +95,7 @@ class BingoCardViewController: UIViewController {
 	/// This function generates a random number and assigns that value to the top lable
 	/// TODO: have it add the appropreate letter to the lable
     @objc func numberPicker(){
-        
-        if allNumbers.count == 0{
-            timer.invalidate()
-            navigationItem.hidesBackButton = false
-            topLabel.text = "You Lost"
-        }
-        
+	
 	let pickedNumber = Int.random(in: 0...allNumbers.count - 1)
 	let number = allNumbers[pickedNumber]
 	allNumbers.remove(at: pickedNumber)
@@ -112,6 +106,14 @@ class BingoCardViewController: UIViewController {
 	topLable = Lable(letter: lable, number: "\(number)")
 	
 	topLabel.text = "\(topLable.letter) \(topLable.number)"
+	
+	if allNumbers.count == 1{
+	  let message = "You Lost"
+	  timer.invalidate()
+	  topLabel.text = message
+	  navigationItem.hidesBackButton = false
+	}
+	
     }
 	
 	/// Intitalizes all of the arrays
