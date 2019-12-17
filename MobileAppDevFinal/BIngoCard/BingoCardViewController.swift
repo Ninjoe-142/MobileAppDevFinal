@@ -55,7 +55,7 @@ class BingoCardViewController: UIViewController {
              sender.backgroundColor = UIColor.lightGray
         }
         didWin(victoryChecker(sender))
-    }
+    } 
     
     override func viewDidLoad() {
         super.viewDidLoad()
