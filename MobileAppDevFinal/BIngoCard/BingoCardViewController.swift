@@ -12,6 +12,7 @@ import UIKit
 import Foundation
 
 class BingoCardViewController: UIViewController {
+	let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
 	
 	var topLable = Lable(letter: "X", number: "0")
     
@@ -65,7 +66,18 @@ class BingoCardViewController: UIViewController {
         arrayInit()
         numberGenerator(allColumns, allNumberArrays)
         
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(numberPicker), userInfo: nil, repeats: true)
+	timer.schedule(deadline: .now() + .seconds(5), repeating: 5.0)
+	timer.setEventHandler {
+		self.numberPicker()
+	}
+	NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main) { [weak self] _ in
+		  self?.timer.suspend()
+	   }
+	   NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
+		  self?.timer.resume()
+	   }
+
+	   timer.activate()
     }
 	
 	/// This fuction takes in all of the needed numbers and all of the colums and iterates over said colums assigning each
@@ -93,8 +105,8 @@ class BingoCardViewController: UIViewController {
     }
 	
 	/// This function generates a random number and assigns that value to the top lable
-	/// TODO: have it add the appropreate letter to the lable
-    @objc func numberPicker(){
+
+	func numberPicker(){
 	
 	let pickedNumber = Int.random(in: 0...allNumbers.count - 1)
 	let number = allNumbers[pickedNumber]
@@ -104,12 +116,14 @@ class BingoCardViewController: UIViewController {
 		topLabel.text = "\(number)"
 	}
 	topLable = Lable(letter: lable, number: "\(number)")
-	
-	topLabel.text = "\(topLable.letter) \(topLable.number)"
-	
+		DispatchQueue.main.async{
+			self.topLabel.text = "\(self.topLable.letter) \(self.topLable.number)"
+		}
+		print("\(topLable.letter) \(topLable.number)" )
+		
 	if allNumbers.count == 1{
 	  let message = "You Lost"
-	  timer.invalidate()
+	  timer.suspend()
 	  topLabel.text = message
 	  navigationItem.hidesBackButton = false
 	}
@@ -145,7 +159,7 @@ class BingoCardViewController: UIViewController {
 	/// - Parameter type: Windconition is an Enum that is made to represent one of the bingo types
     func didWin(_ type : WinConition) {
         if type != .none{
-            timer.invalidate()
+            timer.suspend()
             topLabel.text = "You won \(type.rawValue) bingo!"
             navigationItem.hidesBackButton = false
         }
