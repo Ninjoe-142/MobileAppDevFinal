@@ -119,7 +119,6 @@ class BingoCardViewController: UIViewController {
 		DispatchQueue.main.async{
 			self.topLabel.text = "\(self.topLable.letter) \(self.topLable.number)"
 		}
-		print("\(topLable.letter) \(topLable.number)" )
 		
 	if allNumbers.count == 1{
 	  let message = "You Lost"

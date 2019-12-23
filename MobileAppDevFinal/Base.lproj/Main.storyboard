@@ -42,7 +42,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BuN-RY-eV4"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BuN-RY-eV4">
+                        <barButtonItem key="rightBarButtonItem" title="About" id="68O-Ls-Lb1">
+                            <connections>
+                                <action selector="aboutButton:" destination="BYZ-38-t0r" id="Jxn-Fl-3Jm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -454,6 +462,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN3-sC-3Hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1856.521739130435" y="133.25892857142856"/>
+        </scene>
+        <!--About Screen-->
+        <scene sceneID="rhX-DO-FtO">
+            <objects>
+                <viewController storyboardIdentifier="About" title="About Screen" id="E49-iz-hQ0" customClass="AboutScreen" customModule="MobileAppDevFinal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="69k-Y7-QoI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Is a small Bingo App that I made in order to Learn about App development Thank you for taking a look at it   " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkk-bn-SrM">
+                                <rect key="frame" x="20" y="309" width="374" height="161"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="161" id="UhV-AQ-jzw"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="YKJ-bz-IKd"/>
+                                    <constraint firstAttribute="height" constant="161" id="d7m-4b-sAi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwF-76-IRj">
+                                <rect key="frame" x="183" y="524" width="48" height="30"/>
+                                <state key="normal" title="Twitter"/>
+                                <connections>
+                                    <action selector="TwitterButton:" destination="E49-iz-hQ0" eventType="touchUpInside" id="TsJ-Qg-CAt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xav-lL-ZPH" firstAttribute="trailing" secondItem="XwF-76-IRj" secondAttribute="trailing" constant="183" id="19D-Gp-NSJ"/>
+                            <constraint firstItem="Nkk-bn-SrM" firstAttribute="leading" secondItem="xav-lL-ZPH" secondAttribute="leading" constant="20" id="2eq-Vf-vyO"/>
+                            <constraint firstItem="XwF-76-IRj" firstAttribute="top" secondItem="Nkk-bn-SrM" secondAttribute="bottom" constant="54" id="H7r-B2-ZRD"/>
+                            <constraint firstItem="XwF-76-IRj" firstAttribute="leading" secondItem="xav-lL-ZPH" secondAttribute="leading" constant="183" id="T9H-ef-NMF"/>
+                            <constraint firstItem="xav-lL-ZPH" firstAttribute="bottom" secondItem="XwF-76-IRj" secondAttribute="bottom" constant="308" id="TfK-hP-9l6"/>
+                            <constraint firstItem="xav-lL-ZPH" firstAttribute="trailing" secondItem="Nkk-bn-SrM" secondAttribute="trailing" constant="20" id="Zy4-fb-x6g"/>
+                            <constraint firstItem="XwF-76-IRj" firstAttribute="top" secondItem="Nkk-bn-SrM" secondAttribute="bottom" constant="54" id="oEA-d0-9pX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xav-lL-ZPH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ge2-7u-Jzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1859.4202898550725" y="833.70535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I49-mT-R0z">

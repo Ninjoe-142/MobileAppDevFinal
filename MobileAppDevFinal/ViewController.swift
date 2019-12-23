@@ -16,7 +16,11 @@ class ViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+	@IBAction func aboutButton(_ sender: Any) {
+		if let vc = storyboard?.instantiateViewController(withIdentifier: "About") as? AboutScreen {
+		navigationController?.pushViewController(vc, animated: true)
+		}
+	}
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

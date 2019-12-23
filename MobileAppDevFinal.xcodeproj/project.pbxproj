@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BCD4E5B23B10A5D00988717 /* AboutScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD4E5A23B10A5D00988717 /* AboutScreenViewController.swift */; };
 		B28235C421753D0B009C7D63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28235C321753D0B009C7D63 /* AppDelegate.swift */; };
 		B28235C621753D0B009C7D63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28235C521753D0B009C7D63 /* ViewController.swift */; };
 		B28235C921753D0B009C7D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28235C721753D0B009C7D63 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BCD4E5A23B10A5D00988717 /* AboutScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreenViewController.swift; sourceTree = "<group>"; };
 		B28235C021753D0B009C7D63 /* MobileAppDevFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAppDevFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B28235C321753D0B009C7D63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B28235C521753D0B009C7D63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				B28235C321753D0B009C7D63 /* AppDelegate.swift */,
 				B28235C521753D0B009C7D63 /* ViewController.swift */,
 				B28235C721753D0B009C7D63 /* Main.storyboard */,
+				0BCD4E5A23B10A5D00988717 /* AboutScreenViewController.swift */,
 				B2A81591219C71760070F772 /* BIngoCard */,
 				B28235CA21753D0E009C7D63 /* Assets.xcassets */,
 				B28235CC21753D0E009C7D63 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BCD4E5B23B10A5D00988717 /* AboutScreenViewController.swift in Sources */,
 				B28235C621753D0B009C7D63 /* ViewController.swift in Sources */,
 				B28235C421753D0B009C7D63 /* AppDelegate.swift in Sources */,
 				B2A81590219C71110070F772 /* BingoLogicController.swift in Sources */,
