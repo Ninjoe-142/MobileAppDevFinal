@@ -13,7 +13,7 @@ class AboutScreen : UIViewController {
 	
 	@IBAction func TwitterButton(_ sender: Any) {
 
-		if let url = URL(string: "https://twitter.com/Ninjoe_Gamer") {
+		if let url = URL(string:"https://www.linkedin.com/in/joseph-decrisanti-1a3550131") {
 		    UIApplication.shared.open(url)
 		}
 	}
